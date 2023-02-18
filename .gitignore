@@ -1,7 +1,7 @@
-build
-!build/libs
+/build/*
+!build/libs/
 .*
 !.gitignore
-gradle
+/gradle
 *.properties
 !gradle.properties
