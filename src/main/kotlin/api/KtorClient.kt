@@ -1,5 +1,6 @@
 package api
 
+import BASE_URL
 import de.jensklingenberg.ktorfit.Ktorfit
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -8,11 +9,12 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
-const val BASE_URL = "http://84.201.153.24:8000/"
-
 val ktorcl = HttpClient(CIO) {
     install(ContentNegotiation) {
-        json(Json { isLenient = true; ignoreUnknownKeys = true })
+        json(Json {
+            isLenient = true
+            ignoreUnknownKeys = true
+        })
     }
     install(Logging) {
         logger = Logger.DEFAULT
